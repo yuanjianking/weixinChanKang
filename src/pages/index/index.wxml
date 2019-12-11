@@ -1,0 +1,97 @@
+<!-- 分类栏 -->
+<view class='classify'>
+    <view wx:for = '{{categories}}' wx:key = 'id'>
+        <view class='categories' bindtap='categoriesTap' data-index='{{index}}'>
+            <text class="{{index === swiperId ? 'categories_text' : ''}}">{{item}}</text>
+        </view>
+    </view>
+</view>
+
+<!-- 左右滑动 -->
+<swiper class='swiper' style='height:{{height}}px' bindchange="swiperchangeTap" current="{{swiperId}}">
+    <swiper-item wx:for = '{{categories}}' wx:key = 'id'>
+          <view wx:if = '{{index == swiperId}}' style='height:{{height}}px'>
+
+              <!-- 菜单 -->
+              <view wx:if = '{{swiperId == 0}}' class='menu' style='height:{{height}}px'>
+                 
+                 <!-- 左右联动 -->
+                 <view class='scroll'>
+                    <!-- 左 -->
+                    <scroll-view class='scroll_left' scroll-with-animation="true" scroll-y="true" style="height:{{height}}px" scroll-top="{{leftToTop}}">
+                        <view style="padding-bottom: 50rpx;" >
+                          <view wx:for="{{constants}}" wx:key="id" bindtap="leftTap" data-id="{{item.id}}" class='{{item.id === currentLeftSelect ?"scroll_left_text_active":"scroll_left_text"}}'>
+                              <view id="{{item.id}}">
+                              {{item.name}}
+                              </view>
+                          </view>
+                        </view>
+                    </scroll-view>
+
+                    <!-- 右 -->
+                    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{height}}px"  bindscroll="rightTap" scroll-into-view="{{toView}}"  class='scroll_right'>
+                        <view wx:for="{{constants}}" wx:for-index = 'parentIndex' wx:key="id" id="{{item.id}}">
+                            <view class="scroll_right_top">{{item.name}}</view>
+                            <view class="scroll_right_view" wx:for="{{item.category}}" wx:key="category_id">
+                                  <view class="item_left">
+                                    <view style="height:200rpx;width:200rpx;margin-top:20rpx;margin-left:10rpx;">
+                                      <image src='../../images/service.jpg' style="height:200rpx;width:200rpx"></image>
+                                    </view>
+                                    <view style="margin-top:10rpx">
+                                      <view style="height:100rpx;margin-top:10rpx;margin-left:10rpx;">{{item.category_name}}</view>
+                                      <view style="margin-top:40rpx; margin-left:10rpx;font-size: 30rpx; color:red;">￥{{item.category_price}}</view>
+                                    </view>                                  
+                                  </view>
+                                  <view class="item_right">
+                                      <view class='top'>
+                                        <view wx:if = '{{item.category_num > 0}}'  >{{item.category_num}}</view>
+                                        </view>
+                                      <view class='bottom'> 
+                                          <view class='add' bindtap='showChoseServiceTap' data-parentIndex='{{parentIndex}}' data-index='{{index}}'>选时间</view>
+                                      </view>
+                                  </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+              </view>
+              <view wx:if = '{{swiperId == 1}}' class='appraise'></view>
+              <view wx:if = '{{swiperId == 2}}' class='appraise'></view>
+              <view wx:if = '{{swiperId == 3}}' class='appraise'></view>
+              <view wx:if = '{{isShowChoseService}}' class='chose_service' bindtap='choseCloseTap' >
+              </view>
+          </view>
+    </swiper-item>
+</swiper>
+
+<!-- 下面的购物车 -->
+<view wx:if = '{{isShowCart}}' class = 'cart_bottom_cover' bindtap='cartCloseTap' ></view>
+
+<view wx:if = '{{isShowCart}}' class = 'cart_bottom'>
+      <view class='cart_bottom_view'>
+          <view style='margin-left: 30rpx;'>预约的服务</view>
+          <view style='margin-right: 30rpx;' bindtap='clearCartTap'>清空</view>
+      </view>
+      <scroll-view class='cart_scroll' scroll-y = 'true'>
+          <view class='cart_scrollView' wx:for = '{{myCart}}' wx:key = 'myCart'>
+            <view class='cart_scrollView_text'>{{item.name}}</view>
+            <view class='cart_scrollView_view'>     
+                  <view wx:if = '{{item.num == 0}}' class='num'></view>
+                  <view wx:if = '{{item.num == 0}}' class='num'></view>
+                  <view wx:if = '{{item.num > 0}}' class='remove' bindtap='removeCartTap'  data-parentIndex='{{item.parentIndex}}' data-index='{{item.index}}'>-</view>
+                  <view wx:if = '{{item.num > 0}}'  class='num'>{{item.num}}</view>
+                  <view class='add' bindtap='addcartTap' data-parentIndex='{{item.parentIndex}}' data-index='{{item.index}}'>+</view>
+            </view>
+          </view>
+      </scroll-view>
+</view>
+
+
+<!-- 购物车 -->
+<view wx:if = '{{swiperId == 0}}' class='cart'>
+    <view class='cart_img_view' bindtap='showCartTap'>
+    <image src='../../images/shop-cat-on1.png' class='cart_img'></image>
+    <view class='cart_num' wx:if = '{{num > 0}}'>{{num}}</view>
+    </view>
+    <view class='cart_text'>去结算</view>
+</view>

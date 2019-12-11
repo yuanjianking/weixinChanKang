@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shop/shop",
+    "pages/person/person"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "熊熊产康",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#000",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/shop.png",
+        "iconPath": "images/shop.png",
+        "pagePath": "pages/shop/shop",
+        "text": "购买商品"
+      },
+      {
+        "selectedIconPath": "images/order.png",
+        "iconPath": "images/order.png",
+        "pagePath": "pages/index/index",
+        "text": "预约服务"
+      },
+      {
+        "selectedIconPath": "images/person.png",
+        "iconPath": "images/person.png",
+        "pagePath": "pages/person/person",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
