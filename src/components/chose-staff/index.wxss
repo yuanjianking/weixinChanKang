@@ -1,0 +1,75 @@
+
+/*服务时间*/
+.chose_service{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 750rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 9;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+}
+
+.service{
+  display: flex;
+  flex-direction:column;
+  width: 700rpx;
+  background-color:white;
+}
+.close{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #e64340;
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+  border: 15rpx solid rgba(50, 50, 50, 1);
+}
+
+
+/* 注意点：使用columns时，每一行中的组件本身的高度不能高于组件所在行的行高，
+否则会发现组件的好似被切割成2块或多块了  */
+.rg {
+   width: 100%;
+   height: 100%;
+   columns: 4;
+   column-gap: 20rpx;
+   letter-spacing: 5px;
+   line-height: 28px;
+}
+
+/* 
+   注意点：columns分列后，最好使用margin-bottom控制行间距，
+   margin-top会导致第一项与后面的项不一致，很丑
+  */
+.class_r_g {
+   text-align: center;
+   width: 100%;
+   margin-bottom: 5px;
+}
+/* radio文本的点击效果  */
+.checkedt {
+   color: #40E0D0;
+   border: #40E0D0 1px solid;
+   border-radius: 4px;
+   font-size: 14px;
+   padding: 3px 18px;
+}
+
+/* 
+   radio文本的默认效果  
+   注意点：组件本身的高度不能高于组件所在行的行高，否则会发现组件的好似被切割成2块或多块了
+*/
+.normalt {
+   color: #666666;
+   border: #e6e6e6 1px solid;
+   border-radius: 4px;
+   font-size: 14px;
+   padding: 3px 18px;
+}

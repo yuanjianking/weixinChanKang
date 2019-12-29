@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/shop/shop",
-    "pages/person/person"
+    "pages/person/person",
+    "pages/technician/technician",
+    "pages/detail/detail",
+    "pages/book/book"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,22 +20,28 @@
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "images/shop.png",
-        "iconPath": "images/shop.png",
-        "pagePath": "pages/shop/shop",
-        "text": "购买商品"
-      },
-      {
         "selectedIconPath": "images/order.png",
         "iconPath": "images/order.png",
         "pagePath": "pages/index/index",
-        "text": "预约服务"
+        "text": "预约"
+      },
+      {
+        "selectedIconPath": "images/shop.png",
+        "iconPath": "images/shop.png",
+        "pagePath": "pages/shop/shop",
+        "text": "商品"
+      },
+      {
+        "selectedIconPath": "images/shop.png",
+        "iconPath": "images/shop.png",
+        "pagePath": "pages/technician/technician",
+        "text": "技师"
       },
       {
         "selectedIconPath": "images/person.png",
         "iconPath": "images/person.png",
         "pagePath": "pages/person/person",
-        "text": "个人中心"
+        "text": "我的"
       }
     ]
   },

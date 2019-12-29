@@ -1,0 +1,40 @@
+ <view class='chose_service' >
+  <view class='service'>
+    <text>选择技师 </text>
+    <radio-group bindchange='radiochange'>
+      <view wx:for="{{staffs}}" wx:key="id" id="{{item.staff_id}}">
+        <radio id="{{item.staff_name}}" hidden value="{{item.staff_name}}" checked="{{item.checked}}" data-id='item.index'></radio>           
+        <label for="{{item.staff_name}}">
+            <text class='{{item.checked?"checkedt":"normalt"}}'>{{item.staff_name}}</text>
+        </label>
+      </view>
+    </radio-group> 
+
+    <view>{{year}}年{{month}}月{{day}}日</view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+      
+    <view>{{year}}年{{month}}月{{day}}日</view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+ </view>  
+ <view class='close' bindtap='choseCloseTap' >关闭</view>
+</view>

@@ -1,0 +1,15 @@
+<view class="container">
+<view class="ar_coverpath">
+    <image src="../../images/banner_02.png" mode="aspectFill"></image>
+</view>
+<view class="ar_cont">
+    <view>
+        <text class="ar_cont_h1">{{subject}}</text>
+        <text class="ar_cont_price">价格：{{price}}  </text>
+    </view>   
+    <text>   
+    {{detailMessage}}
+    </text>   
+    <button class="ar_book" bindtap="bookTap">立即预定</button>
+</view>
+</view>
